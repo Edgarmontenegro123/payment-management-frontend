@@ -1,13 +1,17 @@
+import React from 'react'
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
+import Login from './components/auth/Login.tsx'
+import Register from './components/auth/Register.tsx'
 import './App.css'
 
-function App() {
-
+const App: React.FC = () => {
   return (
-    <>
-      <div className="text-3xl font-bold underline">
-          <h1>Hello world!</h1>
-      </div>
-    </>
+    <Router>
+        <Routes>
+            <Route path = '/' element = {<Login/>}/>
+            <Route path = '/registro' element = {<Register/>}/>
+        </Routes>
+    </Router>
   )
 }
 
