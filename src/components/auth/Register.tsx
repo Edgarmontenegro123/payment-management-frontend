@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {registerUser, UserData} from '../../services/api.ts'
+import { useNavigate } from 'react-router-dom'
 
 const Register: React.FC = () => {
     // Estados para los datos del usuario y manejo de errores
@@ -11,6 +12,7 @@ const Register: React.FC = () => {
         bank_account_number: ''
     })
     const [error, setError] = useState<string>('')
+    const navigate = useNavigate()
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -28,6 +30,7 @@ const Register: React.FC = () => {
                 bank_account_number: ''
             })
             setError('')
+            navigate('/')
         } catch (error) {
             setError((error instanceof Error) ? error.message : 'Error al registrar un usuario')
         }

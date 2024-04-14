@@ -24,7 +24,6 @@ interface ErrorResponse {
 export const registerUser = async (userData: UserData): Promise<UserData> => {
     try {
         const response: AxiosResponse<UserData> = await api.post('/users', userData)
-        console.log(response.data)
         return response.data
     } catch (error) {
         if(axios.isAxiosError(error)) {
